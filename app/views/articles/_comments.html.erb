@@ -1,5 +1,11 @@
 <ul>
 <% comments.each do |comment| %>
-    <li><%= comment.commenter %>: <%= comment.body %> </li>
+    <li>
+        <%= comment.commenter %>: <%= comment.body %>
+        <%= link_to "X", "/comments/#{comment.id}", data: {
+            method: :delete,
+            confirm: "Do you wnat to delete this comment?"
+        } %>
+    </li>
 <% end %>
 </ul>

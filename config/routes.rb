@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   delete "/#{articles}/:#{id}", to: "#{articles}#destroy"
 
   post "/comments/:#{id}", to: "comments#create"
+  delete "/comments/:#{id}", to: "comments#destroy"
 end

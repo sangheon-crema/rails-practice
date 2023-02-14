@@ -3,6 +3,8 @@ def article_href(article)
 end
 
 class ArticlesController < ApplicationController
+  http_basic_authenticate_with name: "sangheon", password: "crema", except: [:index, :show]
+
   def index
     @articles = Article.all
   end

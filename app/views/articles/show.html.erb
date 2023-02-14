@@ -4,4 +4,10 @@
 
 <ul>
   <li><%= link_to "Edit", "/articles/edit/#{@article.id}" %></li>
+  <li>
+    <%= link_to "Destroy", "/articles/#{@article.id}", data: {
+      method: :delete,
+      confirm: "Are you sure?"
+    } %>
+  </li>
 </ul>

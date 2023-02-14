@@ -1,9 +1,13 @@
+def article_href(article)
+    return "/articles/#{article.id}"
+  end
+
 class CommentsController < ApplicationController
     def create
         @article = Article.find(params[:id])
         @comment = @article.comments.create(comment_params)
 
-        redirect_to "/articles/#{@article.id}"
+        redirect_to article_href(@article)
     end
 
     def destroy
@@ -11,7 +15,7 @@ class CommentsController < ApplicationController
         @article = @comment.article
 
         @comment.destroy
-        redirect_to "/articles/#{@article.id}"
+        redirect_to article_href(@article)
     end
 
     private

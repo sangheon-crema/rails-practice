@@ -20,8 +20,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if (@article.save)
-      path = article_href(@article)
-      redirect_to path
+      redirect_to article_href(@article)
     else 
       render :new, status: :unprocessable_entity
     end
@@ -36,8 +35,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if (@article.update(article_params))
-      path = article_href(@article)
-      redirect_to path
+      redirect_to article_href(@article)
     else 
       render :edit, status: :unprocessable_entity
     end

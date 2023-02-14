@@ -14,20 +14,5 @@
 
 <h2>Comments!</h2>
 
-<ul>
-<% @article.comments.each do |comment| %>
-<li><%= comment.commenter %>: <%= comment.body %> </li>
-<% end %>
-</ul>
-
-<%= form_with model: [@article, @article.comments.build], url: "/comments/#{@article.id}" do |form| %>
-<p>
-<%= form.label "Commenter" %><br />
-<%= form.text_field :commenter %>
-</p>
-<p>
-<%= form.label "Body" %><br />
-<%= form.text_area :body %>
-</p>
-<p><%= form.submit %></p>
-<% end %>
+<%= render "comments", comments: @article.comments %>
+<%= render "comment_form", article: @article %>

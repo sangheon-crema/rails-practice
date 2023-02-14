@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   id = "id"
   index_page = "#{articles}#index"
 
+  resources :articles do
+    resources :comments
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root index_page
   get "/#{articles}", to: index_page

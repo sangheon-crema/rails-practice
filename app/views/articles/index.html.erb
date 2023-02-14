@@ -1,10 +1,15 @@
+<% 
+def article_href(article) 
+  return "/articles/#{article.id}" 
+end
+%>
+
 <h1>Articles</h1>
 
 <ul>
   <% @articles.each do |article| %>
     <li>
-    <a href="/articles/<%= article.id %>">
-      <%= article.title %>
+      <%= link_to article.title, article_href(article) %>
     </li>
   <% end %>
 </ul>
